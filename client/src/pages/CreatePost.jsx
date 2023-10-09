@@ -29,12 +29,13 @@ const CreatePost = () => {
     }
 
     const handleChange = (e) => {
+      setForm( { ...form, [e.target.name]:[e.target.value] } )
 
     }
 
     const handleSurpriseMe = (message) => {
-
-
+        const randomPrompt = getRandomPrompt(form.prompt);
+        setForm({ ...form, prompt: randomPrompt });
     }
 
 
@@ -101,7 +102,7 @@ const CreatePost = () => {
             <button
               type="button"
               onClick={generateImage}
-              className="w-full text-white bg-green-700 rounded-md font-medium text-sm
+              className="w-full sm:w-auto text-white bg-green-700 rounded-md font-medium text-sm
               py-2.5 px-5 text-center" 
               >
                 {generatingImg ? 'Generating...' : 'Generate'}
@@ -110,6 +111,13 @@ const CreatePost = () => {
 
         <div className="mt-10">
             <p className="mt-2 text-[#666e75] text-[14px]">Once you have created the image you can share with the community</p>
+            <button
+            type="submit"
+            className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full px-5 py-2.5 text-center sm:w-auto"
+            >
+              { loading ? 'Sharing...' : 'Share with the community'}
+            </button>
+       
         </div>
 
       </form>
