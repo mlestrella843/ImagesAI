@@ -55,8 +55,6 @@ const CreatePost = () => {
               value={ form.name }
               handleChange = { handleChange }       
             />
-        </div>
-        <div className="flex flex-col gap-5">
             <FormField 
               LabelName= "Prompt"
               type="text"
