@@ -1,10 +1,6 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
-//import { OpenAIApi } from 'openai';
-
 import { OpenAI }from 'openai';
-
-
 
 dotenv.config();
 
@@ -15,7 +11,7 @@ const openai = new OpenAI({
   });
 
 router.route('/').get((req,res) => {
-    res.send('Hello from DALL-E');
+    res.send('Hello from DALL-E!');
 });
 
 router.route('/').post( async(req, res) => {
